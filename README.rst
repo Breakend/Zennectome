@@ -1,4 +1,4 @@
-zennectome
+zennectome [![Build Status](https://travis-ci.org/Breakend/Zennectome.svg?branch=master)](https://travis-ci.org/Breakend/Zennectome)
 ========================
 
 This is a tool for analyzing networks in connectomics and neuroscience
