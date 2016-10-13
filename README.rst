@@ -14,7 +14,9 @@ Usage
 
 Clone the repository:
 
-    $ git clone <TODO>
+.. code-block:: console
+
+    $ git clone https://github.com/Breakend/Zennectome.git
     $ make install
 
 Behavior
