@@ -20,8 +20,8 @@ Clone the repository:
 Behavior
 -----
 
-.. code-block:: bash
-	usage: zennectome [-h] [--separator SEPARATOR]
+
+        usage: zennectome [-h] [--separator SEPARATOR]
 				    [--community_louvain | --community_walktrap | --community_spinglass]
 				    [matrix_filepath]
 
