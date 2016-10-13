@@ -16,7 +16,7 @@ Clone the repository:
 
 .. code-block:: console
 
-    $ git clone https://github.com/Breakend/Zennectome.git
+    $ git clone https://github.com/Breakend/Zennectome.git && cd Zennectome
     $ make install
 
 Behavior
