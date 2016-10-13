@@ -21,24 +21,27 @@ Behavior
 -----
 
 
-        usage: zennectome [-h] [--separator SEPARATOR]
-				    [--community_louvain | --community_walktrap | --community_spinglass]
-				    [matrix_filepath]
+    $ zennectome --help
+    usage: zennectome-runner.py [-h] [--separator SEPARATOR]
+                                [--community_louvain | --community_walktrap | --community_spinglass]
+                                [matrix_filepath]
 
-	positional arguments:
-	  matrix_filepath       The filepath to the connectivity matrix. Must be all-
-				to-all and in delimited format. Alternatively, the
-				file may be streamed to stdin and piped here.
+    positional arguments:
+      matrix_filepath       The filepath to the connectivity matrix. Must be all-
+                            to-all and in delimited format. Alternatively, the
+                            file may be streamed to stdin and piped here.
 
-	optional arguments:
-	  -h, --help            show this help message and exit
-	  --separator SEPARATOR, -p SEPARATOR
-				Specify the separator used in the file, defaults to
-				","
-	  --community_louvain, -l
-				Run Louvain community detection on the given graph.
-	  --community_walktrap, -w
-				Run Walktrap community detection on the given graph.
-	  --community_spinglass, -s
-				Run spinglass community detection on the given graph.
+    optional arguments:
+      -h, --help            show this help message and exit
+      --separator SEPARATOR, -p SEPARATOR
+                            Specify the separator used in the file, defaults to
+                            ","
+      --community_louvain, -l
+                            Run Louvain community detection on the given graph.
+      --community_walktrap, -w
+                            Run Walktrap community detection on the given graph.
+      --community_spinglass, -s
+                            Run spinglass community detection on the given graph.
+
+
 
