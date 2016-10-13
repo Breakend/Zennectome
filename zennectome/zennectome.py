@@ -22,7 +22,7 @@ def main():
                          'Alternatively, the file may be streamed to stdin and piped here.'))
 
     parser.add_argument('--separator', '-p', action='store', dest='separator', default=',',
-                    help='Specify the separator used in the file, defaults to .csv')
+                    help='Specify the separator used in the file, defaults to ","')
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--community_louvain', '-l', action='store_true', dest='louvain', default=False,
