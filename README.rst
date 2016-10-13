@@ -20,9 +20,9 @@ Clone the repository:
 Behavior
 -----
 
-
+    .. code-block:: console
     $ zennectome --help
-    usage: zennectome-runner.py [-h] [--separator SEPARATOR]
+    usage: zennectome [-h] [--separator SEPARATOR]
                                 [--community_louvain | --community_walktrap | --community_spinglass]
                                 [matrix_filepath]
 
