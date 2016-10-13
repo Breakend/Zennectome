@@ -21,6 +21,7 @@ Behavior
 -----
 
 .. code-block:: console
+
     $ zennectome --help
     usage: zennectome [-h] [--separator SEPARATOR]
                                 [--community_louvain | --community_walktrap | --community_spinglass]
