@@ -1,38 +1,45 @@
 import pandas as pd
-import StringIO
+from StringIO import StringIO
 import igraph
 import networkx as nx
 
-class ZenGraph:
+class Zengraph:
 
-    def __init__(self):
-        self.connectivity_matrix = None
+    def __init__(self, connectivity_matrix):
+        self.connectivity_matrix = connectivity_matrix 
         self.igraph_representation = None
+        self.networkx_representation = None
 
-    def from_csv_stream(self, stream, sep=","):
+    @classmethod
+    def from_stream(cls, stream, sep=","):
         #TODO: check dimensionality, should be square
-        self.connectivity_matrix = pd.read_csv(StringIO(stream), sep=sep, header=None, chunksize=1)
+        if not stream:
+            raise Exception("No data available. Please provide a filepath or a piped input for the connectivity matrix.")
 
-    def from_csv_file(self, filename, sep=","):
-        self.connectivity_matrix = pd.read_csv("mmc2.csv", sep=sep)
+        connectivity_matrix = pd.read_csv(StringIO(stream), sep=sep, chunksize=1, index_col=0)
+        return cls(connectivity_matrix)
+
+    @classmethod
+    def from_file(cls, filepath, sep=","):
+        connectivity_matrix = pd.read_csv(filepath, sep=sep, index_col=0)
+        return cls(connectivity_matrix)
 
     def as_igraph(self):
         if not self.igraph_representation:
             A = self.connectivity_matrix.values
-            g = igraph.Graph.Adjacency((A > 0).tolist())
+            g = igraph.Graph.Adjacency((A>0).tolist())
             g.es['weight'] = A[A.nonzero()]
-            g.vs['label'] = node_names
+            g.vs['name'] = self.connectivity_matrix.columns
             self.igraph_representation = g 
         return self.igraph_representation
 
     def as_nx_graph(self):
         if not self.networkx_representation:
             G = nx.DiGraph()
-            for col in df:
-            if col == "labels":
-                continue
-            for x in range(0,len(df["labels"])):
-                if df[col][x] != 0.0:
-                G.add_edge(df["labels"][x],col, weight=df[col][x])
+            df = self.connectivity_matrix
+            for col in df.columns:
+                for x in range(0,len(df.columns)):
+                    if df[col][x] != 0.0:
+                        G.add_edge(df.columns[x],col, weight=df[col][x])
             self.networkx_representation = G
         return self.networkx_representation
