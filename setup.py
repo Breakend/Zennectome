@@ -5,7 +5,7 @@
 
 
 import re
-from setuptools import setup
+from setuptools import *
 
 
 version = re.search(
@@ -33,8 +33,8 @@ setup(
     url = "https://github.com/Breakend/Zennectome",
     test_suite='nose.collector',
     tests_require=['nose'],
+    packages = find_packages(),
     install_requires=[
-        'Cython',
         'pandas',
         'networkx',
         'python-igraph',
