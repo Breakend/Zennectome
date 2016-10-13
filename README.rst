@@ -1,9 +1,8 @@
 zennectome
+========================
 
 .. image:: https://travis-ci.org/Breakend/Zennectome.svg?branch=master
     :target: https://travis-ci.org/Breakend/Zennectome
-
-========================
 
 This is a tool for analyzing networks in connectomics and neuroscience
 research. It takes as input a connectivity matrix as a csv and outputs the
