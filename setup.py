@@ -33,7 +33,6 @@ setup(
     url = "https://github.com/Breakend/Zennectome",
     test_suite='nose.collector',
     tests_require=['nose'],
-    packages = find_packages(),
     install_requires=[
         'pandas',
         'networkx',

@@ -19,7 +19,7 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a
-  - conda create -q -n test python=$TRAVIS_PYTHON_VERSION pandas nose
+  - conda create -q -n test python=$TRAVIS_PYTHON_VERSION pandas=0.17.0 nose
   - python setup.py install
 
 # command to run tests
