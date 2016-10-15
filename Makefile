@@ -1,2 +1,5 @@
 install:
-	python setup.py
+  python setup.py install
+
+test:
+  nosetests
