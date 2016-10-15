@@ -4,5 +4,6 @@
 """zennectome.__main__: executed when zennectome directory is called as script."""
 
 
-from .zennectome import main
+from zennectome import main
+
 main()

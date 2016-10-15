@@ -37,6 +37,7 @@ setup(
         'pandas',
         'networkx',
         'python-igraph',
-        'python-louvain'
+        'python-louvain',
+        'MCL_Markov_Cluster'
     ],
     )

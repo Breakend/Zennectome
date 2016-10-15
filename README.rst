@@ -46,5 +46,12 @@ Behavior
       --community_spinglass, -s
                             Run spinglass community detection on the given graph.
 
+Examples
+-----
 
+TODO: drosophila connectivity matrix
+
+TODO: mouse connectivity matrix from http://civmvoxport.duhs.duke.edu/voxbase/preview.php?tid=B&studyid=259&datasetid=14532
+
+TODO: MEG?
 
