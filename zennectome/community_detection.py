@@ -40,7 +40,7 @@ def spinglass(zengraph):
 
     Based on:
 
-    Reichardt, Jörg, and Stefan Bornholdt. "Statistical mechanics of community
+    Reichardt, Jorg, and Stefan Bornholdt. "Statistical mechanics of community
     detection." Physical Review E 74.1 (2006): 016110.
 
     :param zengraph: zengraph connecting the connectivity matrix to use
