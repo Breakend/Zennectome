@@ -29,14 +29,16 @@ Nose is required to run the tests.
 
     make test
 
-Behavior
+CLIs
 -----
+
+CLI tools are provided to interact with the library:
 
 .. code-block:: console
 
-    $ zennectome --help
-    usage: zennectome [-h] [--separator SEPARATOR]
-                                [--community_louvain | --community_walktrap | --community_spinglass]
+    $ zennectome-community --help
+    usage: zennectome-community [-h] [--separator SEPARATOR]
+                                [--louvain | --walktrap | --spinglass]
                                 [matrix_filepath]
 
     positional arguments:
@@ -49,12 +51,9 @@ Behavior
       --separator SEPARATOR, -p SEPARATOR
                             Specify the separator used in the file, defaults to
                             ","
-      --community_louvain, -l
-                            Run Louvain community detection on the given graph.
-      --community_walktrap, -w
-                            Run Walktrap community detection on the given graph.
-      --community_spinglass, -s
-                            Run spinglass community detection on the given graph.
+      --louvain, -l         Run Louvain community detection on the given graph.
+      --walktrap, -w        Run Walktrap community detection on the given graph.
+      --spinglass, -s       Run spinglass community detection on the given graph.
 
 Docs
 -----
