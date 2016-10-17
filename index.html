@@ -45,6 +45,30 @@
             
   <div class="section" id="welcome-to-zennectome-s-documentation">
 <h1>Welcome to Zennectome&#8217;s documentation!<a class="headerlink" href="#welcome-to-zennectome-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>The goal of the Zennectome project is to create a python toolbox for graph theoretical
+analysis of connectomes, focusing on neuroscience research. A secondary goal is to unify
+the various graph analysis frameworks to make tools accessible in one place. Several command
+line tools are provided for this purpose:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> zennectome-community --help
+<span class="go">usage: zennectome-community [-h] [--separator SEPARATOR]</span>
+<span class="go">                            [--louvain | --walktrap | --spinglass]</span>
+<span class="go">                            [matrix_filepath]</span>
+
+<span class="go">positional arguments:</span>
+<span class="go">  matrix_filepath       The filepath to the connectivity matrix. Must be all-</span>
+<span class="go">                        to-all and in delimited format. Alternatively, the</span>
+<span class="go">                        file may be streamed to stdin and piped here.</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help            show this help message and exit</span>
+<span class="go">  --separator SEPARATOR, -p SEPARATOR</span>
+<span class="go">                        Specify the separator used in the file, defaults to</span>
+<span class="go">                        &quot;,&quot;</span>
+<span class="go">  --louvain, -l         Run Louvain community detection on the given graph.</span>
+<span class="go">  --walktrap, -w        Run Walktrap community detection on the given graph.</span>
+<span class="go">  --spinglass, -s       Run spinglass community detection on the given graph.</span>
+</pre></div>
+</div>
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
