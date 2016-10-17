@@ -10,7 +10,7 @@ from setuptools import *
 
 version = re.search(
     '^__version__\s*=\s*"(.*)"',
-    open('zennectome/zennectome.py').read(),
+    open('zennectome/__init__.py').read(),
     re.M
     ).group(1)
 
@@ -23,7 +23,7 @@ setup(
     name = "zennectome",
     packages = ["zennectome"],
     entry_points = {
-        "console_scripts": ['zennectome = zennectome.bootstrap:main']
+        "console_scripts": ['zennectome-community = zennectome.zennectome_community:main']
         },
     version = version,
     description = "Command line tool for analyzing connectivity matrices.",

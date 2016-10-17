@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-"""zennectome.zennectome: provides entry point main()."""
-
-
-__version__ = "0.1.0"
+"""zennectome.zennectome_community: provides entry point for the community detection CLI"""
 
 
 import sys
@@ -25,30 +22,40 @@ def main():
                     help='Specify the separator used in the file, defaults to ","')
 
     group = parser.add_mutually_exclusive_group()
-    group.add_argument('--community_louvain', '-l', action='store_true', dest='louvain', default=False,
+    group.add_argument('--louvain', '-l', action='store_true', dest='louvain', default=False,
                     help='Run Louvain community detection on the given graph.')
-    group.add_argument('--community_walktrap', '-w', action='store_true', dest='walktrap', default=False,
+    group.add_argument('--walktrap', '-w', action='store_true', dest='walktrap', default=False,
                     help='Run Walktrap community detection on the given graph.')
-    group.add_argument('--community_spinglass', '-s', action='store_true', dest='spinglass', default=False,
+    group.add_argument('--spinglass', '-s', action='store_true', dest='spinglass', default=False,
                     help='Run spinglass community detection on the given graph.')
 
     results = parser.parse_args()
-    import pdb; pdb.set_trace()
 
     if results.matrix_filepath:
         # Not piping
         zengraph = Zengraph.from_file(results.matrix_filepath, results.separator)
-    else:
+    elif not sys.stdin.isatty():
         zengraph = Zengraph.from_stream(sys.stdin, results.separator)
+    else:
+        parser.print_help()
+        return 1
 
     if results.louvain:
-        clustering = louvain(zengraph) 
+        clustering = louvain(zengraph)
         pprint(clustering.cluster)
     elif results.walktrap:
-        clustering = walktrap(zengraph) 
+        clustering = walktrap(zengraph)
         pprint(clustering.cluster)
     elif results.spinglass:
-        clustering = spinglass(zengraph) 
+        clustering = spinglass(zengraph)
         pprint(clustering.cluster)
+    else:
+        print("\nSpecify community detection algorithm to use...\n")
+        parser.print_help()
+        return 1
 
     return 0
+
+
+if __name__ == '__main__':
+    main()

@@ -26,5 +26,5 @@ class TestZenCommunityDetection(TestCase):
 
         # Assert that the data was loaded properly
         clustering = louvain(zengraph)
-        
+
         self.assertEquals(clustering.number_of_clusters, 5)

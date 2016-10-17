@@ -9,6 +9,15 @@ class TestZenraph(TestCase):
         # Assert that the data was loaded properly
         self.assertEquals(zengraph.connectivity_matrix.shape, (49,49))
 
+    def test_load_from_stream(self):
+        from cStringIO import StringIO
+        csv_data = """labels, label1, label2
+                      label1, 0.47094534,  0.40249001
+                      label2, 0.45562164,  0.37275901"""
+
+        zengraph = Zengraph.from_stream(StringIO(csv_data))
+        self.assertEquals(zengraph.connectivity_matrix.shape, (2,2))
+
     def try_loading_non_square_connectivity_matrix(self):
         self.assertRaises(Exception, Zengraph.from_file('./examples/bad.csv'))
 

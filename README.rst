@@ -19,6 +19,16 @@ Clone the repository:
     $ git clone https://github.com/Breakend/Zennectome.git && cd Zennectome
     $ make install
 
+Tests
+-----
+
+Running tests requires having the dependencies installed on the system.
+Nose is required to run the tests.
+
+.. code-block:: tests
+
+    make test
+
 Behavior
 -----
 
@@ -46,12 +56,7 @@ Behavior
       --community_spinglass, -s
                             Run spinglass community detection on the given graph.
 
-Examples
+Docs
 -----
 
-TODO: drosophila connectivity matrix
-
-TODO: mouse connectivity matrix from http://civmvoxport.duhs.duke.edu/voxbase/preview.php?tid=B&studyid=259&datasetid=14532
-
-TODO: MEG?
-
+https://breakend.github.io/Zennectome
