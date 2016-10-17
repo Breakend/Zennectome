@@ -27,6 +27,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="Zennectome 0.10 documentation" href="index.html" />
+    <link rel="next" title="Graph" href="graph.html" />
     <link rel="prev" title="Welcome to Zennectome’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -43,9 +44,19 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-zennectome.community_detection">
-<span id="community-detection"></span><h1>Community Detection<a class="headerlink" href="#module-zennectome.community_detection" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+  <div class="section" id="community-detection">
+<h1>Community Detection<a class="headerlink" href="#community-detection" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why">
+<h2>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h2>
+<p>The goal of the community detection package of Zennectome is to aggregate the various
+tools and algorithms across various packages in the wild. You may want to run Louvain
+Modularity Maximization with your NetworkX graph, but then it requires finding the
+separate community package. Or maybe you want to run something in igraph, but then
+you have to convert things. The Zennectome community detection package tries to simplify that.</p>
+</div>
+<div class="section" id="code-documentation-and-examples">
+<h2>Code Documentation and Examples<a class="headerlink" href="#code-documentation-and-examples" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-zennectome.community_detection"></span><dl class="class">
 <dt id="zennectome.community_detection.Cluster">
 <em class="property">class </em><code class="descclassname">zennectome.community_detection.</code><code class="descname">Cluster</code><span class="sig-paren">(</span><em>cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#zennectome.community_detection.Cluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a wrapper for various community representations in different packages</p>
@@ -175,17 +186,28 @@ Sciences. Springer Berlin Heidelberg, 2005.</p>
 </dd></dl>
 
 </div>
+</div>
 
 
           </div>
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Community Detection</a><ul>
+<li><a class="reference internal" href="#why">Why?</a></li>
+<li><a class="reference internal" href="#code-documentation-and-examples">Code Documentation and Examples</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Welcome to Zennectome&#8217;s documentation!</a></li>
+      <li>Next: <a href="graph.html" title="next chapter">Graph</a></li>
   </ul></li>
 </ul>
 </div>
