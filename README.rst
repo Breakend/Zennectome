@@ -18,6 +18,7 @@ Clone the repository:
 
     $ git clone https://github.com/Breakend/Zennectome.git && cd Zennectome
     $ make install
+    $ zennectome-community examples/example.csv --separator ";" --walktrap
 
 Tests
 -----
