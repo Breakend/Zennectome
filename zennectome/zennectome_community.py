@@ -42,13 +42,13 @@ def main():
 
     if results.louvain:
         clustering = louvain(zengraph)
-        pprint(clustering.cluster)
+        clustering.print_cluster_as_csv()
     elif results.walktrap:
         clustering = walktrap(zengraph)
-        pprint(clustering.cluster)
+        clustering.print_cluster_as_csv()
     elif results.spinglass:
         clustering = spinglass(zengraph)
-        pprint(clustering.cluster)
+        clustering.print_cluster_as_csv()
     else:
         print("\nSpecify community detection algorithm to use...\n")
         parser.print_help()

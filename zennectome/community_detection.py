@@ -104,8 +104,6 @@ def louvain(zengraph):
 
 class Cluster:
     """Provides a wrapper for various community representations in different packages
-
-    .. todo:: Add a pretty print method to output to csv
     """
     def __init__(self, cluster):
         self.cluster = cluster
@@ -135,8 +133,20 @@ class Cluster:
         cluster = {}
         i = 0
         for subgraph in clustering.subgraphs():
-            i += 1
             cluster[i] = []
             for v in subgraph.vs["name"]:
                 cluster[i].append(v)
+            i += 1
         return cls(cluster)
+
+    def print_cluster_as_csv(self):
+        """Prints the cluster in csv format.
+
+        Format is as follows:
+
+        NodeA,CommunityLabel
+        NodeB,CommunityLabelB
+        """
+        for community in self.cluster.keys():
+            for node in self.cluster[community]:
+                print("%s, %s" % (node, community))
