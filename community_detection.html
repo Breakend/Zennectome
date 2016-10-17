@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Community Detection &#8212; Zennectome 0.10 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.10',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Zennectome 0.10 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to Zennectome’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-zennectome.community_detection">
+<span id="community-detection"></span><h1>Community Detection<a class="headerlink" href="#module-zennectome.community_detection" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="zennectome.community_detection.Cluster">
+<em class="property">class </em><code class="descclassname">zennectome.community_detection.</code><code class="descname">Cluster</code><span class="sig-paren">(</span><em>cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#zennectome.community_detection.Cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a wrapper for various community representations in different packages</p>
+<dl class="classmethod">
+<dt id="zennectome.community_detection.Cluster.from_igraph_clustering">
+<em class="property">classmethod </em><code class="descname">from_igraph_clustering</code><span class="sig-paren">(</span><em>clustering</em><span class="sig-paren">)</span><a class="headerlink" href="#zennectome.community_detection.Cluster.from_igraph_clustering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Cluster object from an igraph returned community</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="zennectome.community_detection.Cluster.from_nx_community">
+<em class="property">classmethod </em><code class="descname">from_nx_community</code><span class="sig-paren">(</span><em>nx_community</em><span class="sig-paren">)</span><a class="headerlink" href="#zennectome.community_detection.Cluster.from_nx_community" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Cluster object from a network_x returned community</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="zennectome.community_detection.Cluster.number_of_clusters">
+<code class="descname">number_of_clusters</code><a class="headerlink" href="#zennectome.community_detection.Cluster.number_of_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the number of communities in this clustering</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="zennectome.community_detection.louvain">
+<code class="descclassname">zennectome.community_detection.</code><code class="descname">louvain</code><span class="sig-paren">(</span><em>zengraph</em><span class="sig-paren">)</span><a class="headerlink" href="#zennectome.community_detection.louvain" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a Cluster object containing the communities found via louvain</p>
+<p>Uses the louvain implementation from the networkx community package:</p>
+<p><a class="reference external" href="http://perso.crans.org/aynaud/communities/">http://perso.crans.org/aynaud/communities/</a></p>
+<p>Based on:</p>
+<p>Blondel, Vincent D., et al. &#8220;Fast unfolding of communities in
+large networks.&#8221; Journal of statistical mechanics:
+theory and experiment 2008.10 (2008): P10008.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>zengraph</strong> &#8211; zengraph connecting the connectivity matrix to use</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">communities found</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#zennectome.community_detection.Cluster" title="zennectome.community_detection.Cluster"><code class="xref py py-class docutils literal"><span class="pre">zennectome.community_detection.Cluster</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">zennectome.graph</span> <span class="k">import</span> <span class="n">Zengraph</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">zennectome.community_detection</span> <span class="k">import</span> <span class="n">louvain</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zengraph</span> <span class="o">=</span> <span class="n">Zengraph</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;./examples/example.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clustering</span> <span class="o">=</span> <span class="n">louvain</span><span class="p">(</span><span class="n">zengraph</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This converts a directed graph to an undirected graph via
+summation of the edge weights before running louvain modularity
+maximization.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="zennectome.community_detection.spinglass">
+<code class="descclassname">zennectome.community_detection.</code><code class="descname">spinglass</code><span class="sig-paren">(</span><em>zengraph</em><span class="sig-paren">)</span><a class="headerlink" href="#zennectome.community_detection.spinglass" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a Cluster object containing the communities found via spinglass</p>
+<p>Uses the walktrap implementation from igraph:</p>
+<p><a class="reference external" href="http://igraph.org/python/doc/igraph.Graph-class.html">http://igraph.org/python/doc/igraph.Graph-class.html</a></p>
+<p>Based on:</p>
+<p>Reichardt, Jorg, and Stefan Bornholdt. &#8220;Statistical mechanics of community
+detection.&#8221; Physical Review E 74.1 (2006): 016110.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>zengraph</strong> &#8211; zengraph connecting the connectivity matrix to use</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">communities found</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#zennectome.community_detection.Cluster" title="zennectome.community_detection.Cluster"><code class="xref py py-class docutils literal"><span class="pre">zennectome.community_detection.Cluster</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">zennectome.graph</span> <span class="k">import</span> <span class="n">Zengraph</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">zennectome.community_detection</span> <span class="k">import</span> <span class="n">spinglass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zengraph</span> <span class="o">=</span> <span class="n">Zengraph</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;./examples/example.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clustering</span> <span class="o">=</span> <span class="n">spinglass</span><span class="p">(</span><span class="n">zengraph</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Currently uses default values for all spinglass algorithm parameters</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="zennectome.community_detection.walktrap">
+<code class="descclassname">zennectome.community_detection.</code><code class="descname">walktrap</code><span class="sig-paren">(</span><em>zengraph</em><span class="sig-paren">)</span><a class="headerlink" href="#zennectome.community_detection.walktrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a Cluster object containing the communities found via walktrap</p>
+<p>Uses the walktrap implementation from igraph:</p>
+<p><a class="reference external" href="http://igraph.org/python/doc/igraph.Graph-class.html">http://igraph.org/python/doc/igraph.Graph-class.html</a></p>
+<p>Based on:</p>
+<p>Pons, Pascal, and Matthieu Latapy. &#8220;Computing communities in large networks
+using random walks.&#8221; International Symposium on Computer and Information
+Sciences. Springer Berlin Heidelberg, 2005.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>zengraph</strong> &#8211; zengraph connecting the connectivity matrix to use</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">communities found</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#zennectome.community_detection.Cluster" title="zennectome.community_detection.Cluster"><code class="xref py py-class docutils literal"><span class="pre">zennectome.community_detection.Cluster</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">zennectome.graph</span> <span class="k">import</span> <span class="n">Zengraph</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">zennectome.community_detection</span> <span class="k">import</span> <span class="n">walktrap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zengraph</span> <span class="o">=</span> <span class="n">Zengraph</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;./examples/example.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clustering</span> <span class="o">=</span> <span class="n">walktrap</span><span class="p">(</span><span class="n">zengraph</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Zennectome&#8217;s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/community_detection.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Peter Henderson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/community_detection.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

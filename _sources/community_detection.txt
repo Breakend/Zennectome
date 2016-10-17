@@ -1,0 +1,6 @@
+Community Detection
+**************************
+
+.. automodule:: zennectome.community_detection
+   :members:
+
