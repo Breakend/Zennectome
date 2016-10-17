@@ -58,4 +58,14 @@ CLI tools are provided to interact with the library:
 Docs
 -----
 
-https://breakend.github.io/Zennectome
+See: https://breakend.github.io/Zennectome
+
+Man Pages
+-----
+So installation doesn't require sudo and because every system is different, we don't
+automatically install the man pages, but you may view them in the root directory of the
+repository via:
+
+.. code-block:: console
+
+    $ man ./zennectome-community

@@ -1,0 +1,51 @@
+.TH zennectome-community 1 "Oct 12, 2016" "version 0.1" "TERMINAL USER COMMANDS
+.SH zennectome-community
+zennectome-community
+\− A utility to find communities via different algorithms in a graph based on a connectivity matrix.
+.SH SYNOPSIS
+.B zennectome
+[-h] [--separator SEPARATOR]
+        [--louvain | --walktrap | --spinglass]
+        [matrix_filepath]
+
+
+.SH DESCRIPTION
+A utility to find communities via different algorithms in a graph based on a connectivity matrix.
+.PP
+You can provide a weighted connectivity matrix as a .csv file or pipe the csv file to the tool.
+
+.SH OPTIONS
+.TP
+positional arguments:
+  matrix_filepath       The filepath to the connectivity matrix. Must be all-
+                        to-all and in delimited format. Alternatively, the
+                        file may be streamed to stdin and piped here.
+.TP
+optional arguments:
+-h, --help            show this help message and exit
+
+ -p SEPARATOR, --separator SEPARATOR
+                      Specify the separator used in the file, defaults to ","
+
+-l, --louvain
+                      Run Louvain community detection on the given graph.
+
+-w, --walktrap
+                      Run Walktrap community detection on the given graph.
+
+-s, --spinglass
+                      Run spinglass community detection on the given graph.
+                      
+.SH EXAMPLE
+.TP
+
+.B # zennectome-community examples/example.csv --separator ";" --louvain
+.PP
+.SH OUTPUT
+Returns 0 if everything went fine, or 1 if something failed.
+.SH SEE ALSO
+python(1)
+.SH AUTHOR
+Peter Henderson
+.SH COPYRIGHT
+Copyright (c) 2015 Peter Henderson

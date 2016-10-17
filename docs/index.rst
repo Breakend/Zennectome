@@ -31,12 +31,13 @@ line tools are provided for this purpose:
       --louvain, -l         Run Louvain community detection on the given graph.
       --walktrap, -w        Run Walktrap community detection on the given graph.
       --spinglass, -s       Run spinglass community detection on the given graph.
-      
+
 Contents:
 
 .. toctree::
    :maxdepth: 2
 
+   tutorials
    community_detection
    graph
 
