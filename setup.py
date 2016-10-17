@@ -26,7 +26,7 @@ setup(
         "console_scripts": ['zennectome-community = zennectome.zennectome_community:main']
         },
     version = version,
-    description = "Command line tool for analyzing connectivity matrices.",
+    description = "Python package for analysis of networks, geared toward neuroscience, but can be used for general purpose. Includes CLI for analyzing communities from connectivity matrices.",
     long_description = long_descr,
     author = "Peter Henderson",
     author_email = "peter.henderson@mail.mcgill.ca",

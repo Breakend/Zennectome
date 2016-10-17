@@ -68,4 +68,4 @@ repository via:
 
 .. code-block:: console
 
-    $ man ./zennectome-community
+    $ man ./man/zennectome-community.man

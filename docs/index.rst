@@ -37,7 +37,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   tutorials
+   tutorial
    community_detection
    graph
 
