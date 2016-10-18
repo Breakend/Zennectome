@@ -24,7 +24,7 @@ Clone the repository:
     $ sudo make install
     $ zennectome-community examples/example.csv --separator ";" --walktrap
 
-NOTE: Not, on ubuntu systems there is a problem installing igraph (see link below). A workaround has been added to the Makefile which should resolve the issue. Because of this, make requires sudo now.
+NOTE: On ubuntu systems there is a problem installing igraph (see link below). A workaround has been added to the Makefile which should resolve the issue. Because of this, make requires sudo now.
 
 http://stackoverflow.com/questions/28435418/failing-to-install-python-igraph
 
