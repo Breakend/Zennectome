@@ -12,14 +12,32 @@ specified network analysis.
 Install and Usage
 -----
 
-Note that installation assumes that you already have python and setuptools installed. Depending on your setup, may require sudo make install.
+For Ubuntu:
+
+Note that installation assumes that you already have python and setuptools installed.
 
 Clone the repository:
 
 .. code-block:: console
 
     $ git clone https://github.com/Breakend/Zennectome.git && cd Zennectome
-    $ make install
+    $ sudo make install
+    $ zennectome-community examples/example.csv --separator ";" --walktrap
+
+NOTE: THERE IS A KNOWN PROBLEM INSTALLING IGRAPH ON SOME UBUNTU SYSTEMS. TO GET AROUND THIS, THE FOLLOWING COMMAND HAS BEEN ADDED TO THE MakeFile. This requires sudo now.
+
+http://stackoverflow.com/questions/28435418/failing-to-install-python-igraph
+
+.. code-block:: console
+
+    sudo apt-get install -y libigraph0-dev
+
+For macOS:
+
+.. code-block:: console
+
+    $ git clone https://github.com/Breakend/Zennectome.git && cd Zennectome
+    $ sudo python setup.py install 
     $ zennectome-community examples/example.csv --separator ";" --walktrap
 
 Tests

@@ -34,6 +34,7 @@ setup(
     test_suite='nose.collector',
     tests_require=['nose'],
     install_requires=[
+        'Cython',
         'pandas',
         'networkx',
         'python-igraph',
