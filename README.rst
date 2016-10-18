@@ -9,8 +9,10 @@ research. It takes as input a connectivity matrix as a csv and outputs the
 specified network analysis.
 
 
-Usage
+Install and Usage
 -----
+
+Note that installation assumes that you already have python and setuptools installed. Depending on your setup, may require sudo make install.
 
 Clone the repository:
 
