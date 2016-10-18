@@ -77,10 +77,19 @@ CLI tools are provided to interact with the library:
       --walktrap, -w        Run Walktrap community detection on the given graph.
       --spinglass, -s       Run spinglass community detection on the given graph.
 
+NOTE: Currently, all inputs are required to be in the csv format seen in examples/example.csv
+
 Docs
 -----
 
 See: https://breakend.github.io/Zennectome
+
+Examples
+-----
+
+Note, the examples/example.csv file was taken from the Supplementary material of: https://www.ncbi.nlm.nih.gov/pubmed/25866397
+
+It was modified to avoid replicating the work.
 
 Man Pages
 -----
