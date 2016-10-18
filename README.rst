@@ -43,10 +43,11 @@ For macOS:
 Tests
 -----
 
-Running tests requires having the dependencies installed on the system.
-Nose is required to run the tests.
+Running tests requires having the dependencies installed on the system (note, may need sudo to run or install nose testing tool).
 
-.. code-block:: tests
+To run the tests:
+
+.. code-block:: console
 
     make test
 
