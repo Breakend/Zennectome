@@ -1,13 +1,28 @@
 from unittest import TestCase
 
 from zennectome.graph import Zengraph
+import numpy as np
+import networkx as nx
 
-class TestZenraph(TestCase):
+class TestZengraph(TestCase):
     def test_loading_from_file(self):
         zengraph = Zengraph.from_file('./examples/example.csv', sep=";")
 
         # Assert that the data was loaded properly
         self.assertEquals(zengraph.connectivity_matrix.shape, (49,49))
+
+    def test_loading_from_igraph(self):
+        zengraph = Zengraph.from_file('./examples/example.csv', sep=";")
+
+        # Assert that the data was loaded properly
+        self.assertEquals(zengraph.connectivity_matrix.shape, (49,49))
+        G = zengraph.as_igraph()
+        zengraph2 = Zengraph.from_igraph(G)
+        self.assertEquals(zengraph.connectivity_matrix.shape, (49,49))
+        self.assertEquals(zengraph2.connectivity_matrix.shape, (49,49))
+        em = nx.algorithms.isomorphism.numerical_edge_match('weight', 1)
+        np.testing.assert_array_equal(zengraph.connectivity_matrix.as_matrix(), zengraph2.connectivity_matrix.as_matrix())
+        self.assertTrue(nx.is_isomorphic(zengraph.as_nx_graph(), zengraph2.as_nx_graph(), edge_match=em))
 
     def test_load_from_stream(self):
         from cStringIO import StringIO

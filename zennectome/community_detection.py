@@ -91,15 +91,9 @@ def louvain(zengraph):
         summation of the edge weights before running louvain modularity
         maximization.
     """
-    nx_graph = zengraph.as_nx_graph()
+    nx_graph = zengraph.as_nx_graph(convert_to_undirected=True)
 
-    g = nx.Graph()
-    g.add_edges_from(nx_graph.edges_iter(), weight=0)
-
-    for u, v, d in nx_graph.edges_iter(data=True):
-        g[u][v]['weight'] += d['weight']
-
-    community_dict_modularity = community.best_partition(g)
+    community_dict_modularity = community.best_partition(nx_graph)
     return Cluster.from_nx_community(community_dict_modularity)
 
 class Cluster:

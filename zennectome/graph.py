@@ -2,6 +2,7 @@ import pandas as pd
 from StringIO import StringIO
 import igraph
 import networkx as nx
+import numpy as np
 
 class Zengraph:
     """Provides a wrapper for various graph representations in different packages
@@ -66,6 +67,14 @@ class Zengraph:
             raise Exception("The connectivity matrix must be square. Current shape: (%d, %d)" % connectivity_matrix.values.shape)
         return cls(connectivity_matrix)
 
+    @classmethod
+    def from_igraph(cls, G):
+        connectivity_matrix = G.get_adjacency(attribute='weight')
+        connectivity_matrix = pd.DataFrame(np.array(connectivity_matrix.data))
+        if connectivity_matrix.values.shape[0] != connectivity_matrix.values.shape[1]:
+            raise Exception("The connectivity matrix must be square. Current shape: (%d, %d)" % connectivity_matrix.values.shape)
+        return cls(connectivity_matrix)
+
     def as_igraph(self):
         """Returns and igraph representation of the zengraph
         """
@@ -77,15 +86,36 @@ class Zengraph:
             self.igraph_representation = g
         return self.igraph_representation
 
-    def as_nx_graph(self):
+    def as_nx_graph(self, convert_to_undirected=False, invert_weights=False):
         """Returns a networkx representation of the zengraph
         """
+        G = self.networkx_representation
+
         if not self.networkx_representation:
             G = nx.DiGraph()
             df = self.connectivity_matrix
             for col in df.columns:
                 for x in range(0,len(df.columns)):
-                    if df[col][x] != 0.0:
+                    if df[col][x]:
                         G.add_edge(df.columns[x],col, weight=df[col][x])
             self.networkx_representation = G
-        return self.networkx_representation
+
+        if convert_to_undirected:
+            g = nx.Graph()
+            g.add_edges_from(G.edges_iter(), weight=0.0)
+
+            for u, v, d in G.edges_iter(data=True):
+                if d['weight']:
+                    g[u][v]['weight'] += d['weight']
+            G = g
+
+        if invert_weights:
+            g = nx.Graph()
+            g.add_edges_from(G.edges_iter(), weight=0.0)
+
+            for u, v, d in G.edges_iter(data=True):
+                if d['weight']:
+                    g[u][v]['weight'] += 1./d['weight']
+            G = g
+
+        return G
